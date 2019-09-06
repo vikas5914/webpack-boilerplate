@@ -79,7 +79,7 @@ npm run build
 ### Formatter
 
 - [`standard`](https://standardjs.com/) - JavaScript Standard Style
-  - [`babel-eslint`] - To support experimental language features
+  - [`babel-eslint`](https://github.com/babel/babel-eslint) - To support experimental language features
 
 ## Author
 
