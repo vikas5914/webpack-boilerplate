@@ -1,4 +1,5 @@
 const paths = require('./paths')
+const webpack = require('webpack')
 const merge = require('webpack-merge')
 const common = require('./webpack.common.js')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
@@ -10,9 +11,20 @@ module.exports = merge(common, {
   output: {
     path: paths.build,
     filename: '[name].[contenthash].bundle.js',
+    chunkFilename: '[name].[chunkhash:8].chunk.js'
   },
   devtool: 'source-map',
   plugins: [
+
+    /**
+     * Webpack.DefinePlugin
+     *
+     * Set NODE_ENV as production.
+     */
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('production')
+    }),
+
     /**
      * MiniCssExtractPlugin
      *
@@ -23,8 +35,8 @@ module.exports = merge(common, {
      */
     new MiniCssExtractPlugin({
       filename: 'styles/[name].[contenthash].css',
-      chunkFilename: '[id].css',
-    }),
+      chunkFilename: '[id].css'
+    })
   ],
   module: {
     rules: [
@@ -34,15 +46,15 @@ module.exports = merge(common, {
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
-              publicPath: '../../',
-            },
+              publicPath: '../../'
+            }
           },
           'css-loader',
           'postcss-loader',
-          'sass-loader',
-        ],
-      },
-    ],
+          'sass-loader'
+        ]
+      }
+    ]
   },
   /**
    * Optimization
@@ -50,6 +62,6 @@ module.exports = merge(common, {
    * Production minimizing of JavaSvript and CSS assets.
    */
   optimization: {
-    minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
-  },
+    minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})]
+  }
 })

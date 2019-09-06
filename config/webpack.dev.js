@@ -28,15 +28,25 @@ module.exports = merge(common, {
     open: true,
     compress: true,
     hot: true,
-    port: 8080,
+    port: 8080
   },
 
   plugins: [
+
+    /**
+     * Webpack.DefinePlugin
+     *
+     * Set NODE_ENV as development.
+     */
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('development')
+    }),
+
     /**
      * HotModuleReplacementPlugin
      *
      * Only update what has changed.
      */
-    new webpack.HotModuleReplacementPlugin(),
-  ],
+    new webpack.HotModuleReplacementPlugin()
+  ]
 })

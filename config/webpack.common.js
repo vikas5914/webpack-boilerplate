@@ -10,7 +10,7 @@ module.exports = {
    * The first place Webpack looks to start building the bundle.
    */
   entry: {
-    main: paths.src + '/index.js',
+    main: paths.src + '/index.js'
   },
 
   /**
@@ -20,7 +20,7 @@ module.exports = {
    */
   output: {
     path: paths.build,
-    filename: '[name].bundle.js',
+    filename: '[name].bundle.js'
   },
 
   /**
@@ -45,8 +45,8 @@ module.exports = {
       {
         from: paths.static,
         to: 'assets',
-        ignore: ['*.DS_Store'],
-      },
+        ignore: ['*.DS_Store']
+      }
     ]),
 
     /**
@@ -58,8 +58,8 @@ module.exports = {
       title: 'Webpack Boilerplate',
       favicon: paths.src + '/images/favicon.png',
       template: paths.src + '/template.html', // template file
-      filename: 'index.html', // output file
-    }),
+      filename: 'index.html' // output file
+    })
   ],
 
   /**
@@ -77,7 +77,7 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: ['babel-loader', 'eslint-loader'],
+        use: ['babel-loader']
       },
 
       /**
@@ -91,8 +91,8 @@ module.exports = {
           'style-loader',
           { loader: 'css-loader', options: { sourceMap: true, importLoaders: 1 } },
           { loader: 'postcss-loader', options: { sourceMap: true } },
-          { loader: 'sass-loader', options: { sourceMap: true } },
-        ],
+          { loader: 'sass-loader', options: { sourceMap: true } }
+        ]
       },
 
       /**
@@ -105,8 +105,8 @@ module.exports = {
         loader: 'file-loader',
         options: {
           name: '[path][name].[ext]',
-          context: 'src', // prevent display of src/ in filename
-        },
+          context: 'src' // prevent display of src/ in filename
+        }
       },
 
       /**
@@ -120,9 +120,9 @@ module.exports = {
         options: {
           limit: 8192,
           name: '[path][name].[ext]',
-          context: 'src', // prevent display of src/ in filename
-        },
-      },
-    ],
-  },
+          context: 'src' // prevent display of src/ in filename
+        }
+      }
+    ]
+  }
 }
