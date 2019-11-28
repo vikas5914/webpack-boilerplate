@@ -1,6 +1,5 @@
 const paths = require('./paths')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
@@ -9,9 +8,7 @@ module.exports = {
    *
    * The first place Webpack looks to start building the bundle.
    */
-  entry: {
-    main: paths.src + '/index.js'
-  },
+  entry: [paths.src + '/index.js'],
 
   /**
    * Output
@@ -20,7 +17,8 @@ module.exports = {
    */
   output: {
     path: paths.build,
-    filename: '[name].bundle.js'
+    filename: '[name].bundle.js',
+    publicPath: '/'
   },
 
   /**
@@ -35,19 +33,6 @@ module.exports = {
      * Removes/cleans build folders and unused assets when rebuilding.
      */
     new CleanWebpackPlugin(),
-
-    /**
-     * CopyWebpackPlugin
-     *
-     * Copies files from target to destination folder.
-     */
-    new CopyWebpackPlugin([
-      {
-        from: paths.static,
-        to: 'assets',
-        ignore: ['*.DS_Store']
-      }
-    ]),
 
     /**
      * HtmlWebpackPlugin
