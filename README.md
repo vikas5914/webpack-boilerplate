@@ -13,7 +13,7 @@ Minimal Webpack 4 boilerplate with Babel, Sass, ESLint, Hot Module Replacement, 
 ## Installation
 
 ```
-git clone git@github.com:taniarascia/webpack-boilerplate
+git clone git@github.com:vikas5914/webpack-boilerplate
 npm i
 ```
 
