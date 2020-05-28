@@ -1,7 +1,8 @@
 
 # Webpack Boilerplate
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) ![David](https://img.shields.io/david/dev/taniarascia/webpack-boilerplate)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) ![David](https://img.shields.io/david/dev/taniarascia/webpack-boilerplate) [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=vikas5914/webpack-boilerplate)](https://dependabot.com)
+
 
 > **Note** &ndash; This is a fork of taniarascia/webpack-boilerplate with following changes:
 > - Replaced `node-sass` with `dart-saas`
